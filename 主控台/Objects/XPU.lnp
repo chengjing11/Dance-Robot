@@ -1,0 +1,7 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\UART.obj",
+".\Objects\narfl24l01.obj",
+".\Objects\LCD2406.obj" 
+TO ".\Objects\XPU" 
+PRINT(".\Listings\XPU.m51") RAMSIZE(256) 

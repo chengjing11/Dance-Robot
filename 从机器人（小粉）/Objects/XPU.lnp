@@ -1,0 +1,9 @@
+".\Objects\STARTUP.obj",
+".\Objects\MAIN.obj",
+".\Objects\UART.obj",
+".\Objects\NARFL2401.obj",
+".\Objects\duoji.obj",
+".\Objects\ASR.obj" 
+TO ".\Objects\XPU" 
+
+PRINT(".\Listings\XPU.map")

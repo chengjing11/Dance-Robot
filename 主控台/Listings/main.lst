@@ -1,0 +1,76 @@
+C51 COMPILER V9.54   MAIN                                                                  07/24/2019 11:36:25 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\KEIL\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.ls
+                    -t) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          # include "narfl24l01.h"
+   2          # include "LCD2406.h"
+   3          sbit key = P0^4;
+   4          unsigned char a;
+   5          void three(unsigned int date)
+   6          {
+   7   1            TF_senddat(date);
+   8   1            TF_senddat(date);
+   9   1            TF_senddat(date);
+  10   1      }
+  11          void main ()
+  12          {
+  13   1        wagh();
+  14   1        Uart1234_Init();
+  15   1        Init_NRF24L01_MA();
+  16   1        Set_TxMode_MA();
+  17   1        delay_ms(200);
+  18   1        //SendStringByUart1("1");
+  19   1        CLR_Buf1();
+  20   1        while (1)
+  21   1        {    
+  22   2          if(key==0)
+  23   2          {
+  24   3            delay_ms(200);
+  25   3          if(key==0)
+  26   3          {
+  27   4           a++;
+  28   4          }
+  29   3          }
+  30   2          switch(a) 
+  31   2          { 
+  32   3            case 0 :  LCD2406("Power up!       Waitting cmd!   ");break;//µÈ´ý
+  33   3            case 1 :  three(0x01);a++;LCD2406("Start Dancing........          ");delay_ms(1000);break;//Æô¶¯Îèµ¸
+  34   3            case 2 :  LCD2406("Dancing........                  ");break;//Îèµ¸
+  35   3            
+  36   3            case 3 :  three(0x02);a++;LCD2406("Emergency stop   button ...     ");delay_ms(1000);break;//½ô¼±Í£Ö¹
+  37   3            case 4 :  LCD2406("Stop dancing -  Waitting cmd.....     ");break;//µÈ´ý
+  38   3            
+  39   3            case 5 :  three(0x03);a++;LCD2406("Start voice interaction ...        ");delay_ms(1000);break;//Æô¶¯ÓïÒ
+             -ô
+  40   3            case 6 :  LCD2406("Voice interaction......                 ");break;//½»»ã
+  41   3            
+  42   3            case 7 :  three(0x02);a++;LCD2406("Emergency stop    button ...        ");delay_ms(1000);break;//½ô¼±Í£
+             -Ö¹
+  43   3            case 8 :  LCD2406("Stop voice interaction-Waitting cmd ");break;//µÈ´ý
+  44   3            case 9 :  a=0;break;
+  45   3          }     
+  46   2      
+  47   2        }
+  48   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    239    ----
+C51 COMPILER V9.54   MAIN                                                                  07/24/2019 11:36:25 PAGE 2   
+
+   CONSTANT SIZE    =    322    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
